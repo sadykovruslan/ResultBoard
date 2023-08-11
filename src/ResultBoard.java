@@ -1,9 +1,8 @@
 import java.util.*;
 
 public class ResultBoard {
-    TreeMap <String, Float> boards = new TreeMap<>();
-    String name;
-    Float score;
+     Board board = new Board();
+     TreeSet<Board> strs = new TreeSet<>(board);
 
     public static void main(String[]args){
         ResultBoard rb = new ResultBoard();
@@ -15,10 +14,6 @@ public class ResultBoard {
         rb.addStudent("Alla", 1.5f);
         rb.addStudent("Danila", 5.0f);
 
-        rb.showAll();
-
-
-
     }
 
 //    public ResultBoard(String name, Float score) {
@@ -27,18 +22,15 @@ public class ResultBoard {
 //    }
 
     void addStudent(String name, Float score) {
-        Board board = new Board();
+
         board.name = name;
         board.score = score;
 
-        boards.put(name, score);
+        strs.add(board);
+
+        System.out.println(strs);
     }
 
-    void showAll(){
-        for (String name: boards.keySet()) {
-            System.out.println(boards.get(name));
-        }
-    }
     List<String> top3 () {
         return null;
 
@@ -60,6 +52,6 @@ class Board implements Comparator<Board> {
 
     @Override
     public String toString() {
-        return name + "has average mark: " + score ;
+        return name + " has average mark: " + score ;
     }
 }
