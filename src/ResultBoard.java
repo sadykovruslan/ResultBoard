@@ -2,7 +2,7 @@ import java.util.*;
 
 public class ResultBoard {
      Board board = new Board();
-     TreeSet<Board> strs = new TreeSet<>(board);
+     TreeSet<Board> strs = new TreeSet<>();
 
     public static void main(String[]args){
         ResultBoard rb = new ResultBoard();
@@ -37,21 +37,31 @@ public class ResultBoard {
     }
 
 }
-class Board implements Comparator<Board> {
+class Board implements Comparable<Board> {
     String name;
     Float score;
 
-    @Override
-    public int compare(Board o1, Board o2) {
-        if(o1.score == o2.score) {
-            return 0;
-        } if (o1.score > o2.score) {
-            return 1;
-        } else return -1;
-    }
+//    @Override
+//    public int compare(Board o1, Board o2) {
+//        if(o1.score == o2.score) {
+//            return 0;
+//        } if (o1.score > o2.score) {
+//            return 1;
+//        } else return -1;
+//    }
 
     @Override
     public String toString() {
-        return name + " has average mark: " + score ;
+        return name + " has average mark: " + score;
+    }
+
+    @Override
+    public int compareTo(Board o) {
+        float o1 = o.score;
+        if (o.score == o1) {
+            return 0;
+        } else if (o.score > o1) {
+            return 1;
+        } else return -1;
     }
 }
