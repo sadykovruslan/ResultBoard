@@ -1,8 +1,7 @@
 import java.util.*;
 
 public class ResultBoard {
-     Board board = new Board();
-     TreeSet<Board> strs = new TreeSet<>();
+          TreeSet<Board> strs = new TreeSet<>();
 
     public static void main(String[]args){
         ResultBoard rb = new ResultBoard();
@@ -14,41 +13,34 @@ public class ResultBoard {
         rb.addStudent("Alla", 1.5f);
         rb.addStudent("Danila", 5.0f);
 
+        rb.top3();
     }
-
-//    public ResultBoard(String name, Float score) {
-//        this.name = name;
-//        this.score = score;
-//    }
-
     void addStudent(String name, Float score) {
-
+        Board board = new Board();
         board.name = name;
         board.score = score;
 
         strs.add(board);
-
-        System.out.println(strs);
+//        System.out.println(strs);
     }
 
     List<String> top3 () {
-        return null;
+        Board board = new Board();
+        String s = board.name;
+        List <String> result = new ArrayList<>();
+        for (int i = 0; i < 3; i++ ) {
 
+                result.add(s);
+
+            System.out.println(result);
+        }
+        return result;
     }
 
 }
 class Board implements Comparable<Board> {
     String name;
     Float score;
-
-//    @Override
-//    public int compare(Board o1, Board o2) {
-//        if(o1.score == o2.score) {
-//            return 0;
-//        } if (o1.score > o2.score) {
-//            return 1;
-//        } else return -1;
-//    }
 
     @Override
     public String toString() {
@@ -57,10 +49,9 @@ class Board implements Comparable<Board> {
 
     @Override
     public int compareTo(Board o) {
-        float o1 = o.score;
-        if (o.score == o1) {
+        if (o.score == this.score) {
             return 0;
-        } else if (o.score > o1) {
+        } else if (o.score < this.score) {
             return 1;
         } else return -1;
     }
