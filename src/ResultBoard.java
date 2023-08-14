@@ -26,7 +26,6 @@ public class ResultBoard {
 
     List<String> top3 () {
         Board board = new Board();
-        String name = board.name;
         NavigableSet <Board> strs1 = strs.descendingSet();
         List <String> result = new ArrayList<>(3);
         for (int i = 0; i < 3; i++ ) {
