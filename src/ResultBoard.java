@@ -21,16 +21,17 @@ public class ResultBoard {
         board.score = score;
 
         strs.add(board);
-//        System.out.println(strs);
+        System.out.println(strs);
     }
 
     List<String> top3 () {
         Board board = new Board();
-        String s = board.name;
-        List <String> result = new ArrayList<>();
+        String name = board.name;
+        NavigableSet <Board> strs1 = strs.descendingSet();
+        List <String> result = new ArrayList<>(3);
         for (int i = 0; i < 3; i++ ) {
+            result.add(strs1.pollFirst().name);
 
-                result.add(s);
 
             System.out.println(result);
         }
